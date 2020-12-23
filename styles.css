@@ -13,14 +13,13 @@ html, body {
 .pagina {
     position: relative;
     min-height: 100%;
+    
 }
 
 body{
-    background-color: #f0f8ff;
+    /* background-color: #f0f8ff; */
     background-image: url("img/fondo.jpg");
-    background-size: auto;
-    backdrop-filter: saturate(65%);
-    height:100%;
+    background-size: cover;   
 
 }
 
@@ -31,20 +30,23 @@ header{
 }
 
 
-.container,
-header{ 
-    background-color: #e1eb87;
+.superior{ 
+    /* background-color: #e1eb87; */
+    padding-top: 2em;
+    background-image: linear-gradient(180deg, #ffe1aa 0, #ffd4a7 16.67%, #ffc7a2 33.33%, #f2b99d 50%, #e1ac97 66.67%, #d1a092 83.33%, #c2968d 100%);
     margin-bottom: 0%;
     
 }
 
 
 container{
-    padding: bottom 150px;
+    padding-bottom: 50px;
+    margin-bottom: 50px;
 }
 
 h1{
-    font-size: 5em;
+    font-size: 3em;
+    font-family: Comic Sans;
     text-align: center;
     color: rgb(52, 6, 58);
     font-style: italic;
@@ -65,14 +67,19 @@ a{
     color: rgb(209, 68, 214);
 }
 
+
 .form-control{
     border: solid black 2px;
 }
 
+.btn{
+    background-color: rgb(52, 6, 58);
+}
 
 .foto{
     width: 300px;
-    height: 300px;
+    height: 280px;
+
 }
 
 .card{
@@ -94,10 +101,13 @@ footer{
     font-size: 2em;
     font-weight: bold;
     background-color: rgb(211, 167, 25);
+    background-image: linear-gradient(180deg, #ffe1aa 0, #ffd4a7 16.67%, #ffc7a2 33.33%, #f2b99d 50%, #e1ac97 66.67%, #d1a092 83.33%, #c2968d 100%);
     position: absolute;
     left:0;
     width:100%;
-    bottom: 0px;
     height: 70px;
+    padding-top: 10px;
+    margin-top: 10px;
+    margin-bottom: 0px;
 }
 

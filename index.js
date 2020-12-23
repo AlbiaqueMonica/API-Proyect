@@ -133,7 +133,7 @@ const createNode = ({ id, albumName, releaseDate, trackCount }) => {
     // columna con toda la información del album
     const shortDate = releaseDate.substr(0,10);
     const node = `    
-      <div class="col-md-4 col-12" id="${id}">
+      <div class="col-md-4 col-12 mb-3"  id="${id}">
           <div class="card  mt-3 ml-3">
           <img class="foto" alt="Sin imagen disponible" src="img\\${image[id]} " />
               <div class="card-body">
@@ -193,20 +193,24 @@ const searchAlbum = () => {
   // Buscador
 const selectedAlbum = () => {
   const { value : titulo} = document.querySelector("#album-selector");
-  const foundTitulo = albums.filter(
-    (album) => album.albumName.toLowerCase() == titulo.toLowerCase());
-    //console.log(foundTitulo);
-    if (foundTitulo.length>0){
-      clearNodes();
-     mostrarAlbum(foundTitulo);
+  if(titulo=="Todos"){
+    iterateAlbums(albums);
+  }
+  else{
+    const foundTitulo = albums.filter(
+      (album) => album.albumName.toLowerCase() == titulo.toLowerCase());
+      //console.log(foundTitulo);
+      if (foundTitulo.length>0){
+       clearNodes();
+       mostrarAlbum(foundTitulo);
      
-    }else{
-      clearNodes();
+      }else{
+        clearNodes();
       
-      showMessage();
-    }
+        showMessage();
+     }
+  }
 }
- 
 
 
 //Inicializo el DOM
@@ -216,7 +220,7 @@ async function start(){
     document.querySelector("#message").style.visibility = 'hidden';
     document.querySelector("#find").addEventListener("click", searchAlbum);
     document.querySelector("#album-selector").addEventListener("change", selectedAlbum);
-    document.querySelector("#all").addEventListener("click", searchAlbum);
+    // document.querySelector("#all").addEventListener("click", searchAlbum);
     
     iterateAlbums(albums);
     iterateTitulos(albums);
