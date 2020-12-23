@@ -194,6 +194,7 @@ const searchAlbum = () => {
 const selectedAlbum = () => {
   const { value : titulo} = document.querySelector("#album-selector");
   if(titulo=="Todos"){
+    clearNodes();
     iterateAlbums(albums);
   }
   else{
