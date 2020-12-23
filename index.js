@@ -141,7 +141,7 @@ const createNode = ({ id, albumName, releaseDate, trackCount }) => {
                   <h5 class="card-title">${albumName}</h5>
                   <p class="card-text">Fecha Edición : ${shortDate}</p>
                   <p class="card-text"> Tracks : ${trackCount}</p>
-                  <p class="card-text"> <a href="${music[id]}" target=”_blank”>Ir al audio de los temas</a></p>
+                  <p class="card-text"> <a href="${music[id]}" target=”_blank”>Visitar audio (página externa)</a></p>
                   <!-- <button onClick="del(${id})"  class="btn btn-danger btn-block">Borrar</button>-->
                   <!--<button onClick="del(${id})"  class="btn btn-info btn-block">Lista de Canciones</button>-->
               </div>
@@ -203,7 +203,7 @@ const selectedAlbum = () => {
       if (foundTitulo.length>0){
        clearNodes();
        mostrarAlbum(foundTitulo);
-     
+        
       }else{
         clearNodes();
       
@@ -217,8 +217,8 @@ const selectedAlbum = () => {
 async function start(){
     albums = await fetchAlbums();
 
-    document.querySelector("#message").style.visibility = 'hidden';
-    document.querySelector("#find").addEventListener("click", searchAlbum);
+    // document.querySelector("#message").style.visibility = 'hidden';
+    // document.querySelector("#find").addEventListener("click", searchAlbum);
     document.querySelector("#album-selector").addEventListener("change", selectedAlbum);
     // document.querySelector("#all").addEventListener("click", searchAlbum);
     

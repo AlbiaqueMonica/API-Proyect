@@ -39,9 +39,11 @@ header{
 }
 
 
-container{
-    padding-bottom: 50px;
-    margin-bottom: 50px;
+.container{
+    padding-bottom: 30px;
+    margin-bottom: 20px;
+    background-color: #4e4a49;
+    padding-top: 30px;
 }
 
 h1{
