@@ -1,6 +1,6 @@
 const URL = "https://the-beatles-api.herokuapp.com/api/v1/albums";
 
-//
+//imágenes de los albums
 const image = [" ", "1 (2015 Version).jpg", 'AbbeyRoad.jpg', 'WhiteAlbum.jpg', "SgtPeppers.jpg", "RubberSoul.jpg", "BlueAlbum.jpg", 
 "RedAlbum.jpg", 'Revolver.jpg', 'Love.jpg', 'LetItBe.jpg', 'Help.jpg', 'MagicalMysteryTour.jpg',
 'AHardDaysNight.jpg', 'PleasePleaseMe.jpg', 'WhitTheBeatles.jpg', 'BeatlesForSale.jpg', 'LetItBeNaked.jpg',
@@ -49,12 +49,10 @@ const music = [" ", "https://music.apple.com/us/album/1-2015-version/1440833098?
 const lyrics = [" ", 'AbbeyRoad', 'SgtPeppers', 'AHardDaysNight', 'BeatlesForSale', 'Help', 'LetItBe', 'MagicalMysteryTour',
 'Revolver', 'RubberSoul', 'WhiteAlbum', 'WithTheBeatles', 'YellowSubmarine'];
 
-//"https://music.apple.com/us/album/anthology-box-set/1441159224?l=es"
-//'Anthology.jpg'
 
 const $select = document.querySelector("#album-selector");
 
-//solo usar hasta posicion 20 (luego ampliaré a 37)
+//solo usar hasta posición 20 (luego ampliaré a 37)
 let albums = [];
 let titulos =[];
 let selector = document.querySelector("#album-selector");
@@ -64,25 +62,22 @@ let selector = document.querySelector("#album-selector");
 const fetchAlbums = async (url = URL) => {
     try {
       const response = await fetch(url); 
-      console.log (response);
+      
       const  result = await response.json(); //  body 
-      //saco ultimas posicianes por info inválida
+      //saco últimas posicianes por info inválida
       albums = result.slice(0, 21);
-      console.log (albums);
+      
       return albums;
     } catch (err) {
             console.error(err); 
     }
   };
 
-  // Cargar Select con albums
-
-  
+   
 
  // Iterar títulos
 const iterateTitulos = (albums) =>{
-  //const breedsKeys = Object.keys(breeds);
-  albums.map((album) => loadTitulos(album.albumName))
+    albums.map((album) => loadTitulos(album.albumName))
 }
 
 const loadTitulos = (album) => {
@@ -99,17 +94,17 @@ const limpiar =() =>{
   document.querySelector("#input").value="";
 }
 
-  const showMessage = () => {
-    // mostrar un mensaje de no encontrado 
-    let mensaje = document.getElementById("message");
-    mensaje.innerHTML = "No encontrado";
-    document.querySelector("#message").style.visibility = 'visible';
+  // const showMessage = () => {
+  //   // mostrar un mensaje de no encontrado 
+  //   let mensaje = document.getElementById("message");
+  //   mensaje.innerHTML = "No encontrado";
+  //   document.querySelector("#message").style.visibility = 'visible';
     
-    setTimeout(() => {
-      limpiar();
-    }, 2000);
+  //   setTimeout(() => {
+  //     limpiar();
+  //   }, 2000);
     
-  };
+  // };
 
   const limpiarSel = () =>{
     for(let i=0; i< selector.options.length;i++){
@@ -118,15 +113,15 @@ const limpiar =() =>{
   };
 
   //borrar del select y del dom
-  const del = (id) => {
-    document.getElementById(id).remove(); 
-    albums = albums.filter((album) => album.id != id); //
-    console.log(id);
+  // const del = (id) => {
+  //   document.getElementById(id).remove(); 
+  //   albums = albums.filter((album) => album.id != id); //
+  //   console.log(id);
 
-    limpiarSel();
-    iterateTitulos(albums);
-    albums.length === 0 ? showMessage() : null;
-  };
+  //   limpiarSel();
+  //   iterateTitulos(albums);
+  //   albums.length === 0 ? showMessage() : null;
+  // };
 
   // extraemos propiedades de albums
 const createNode = ({ id, albumName, releaseDate, trackCount }) => {
@@ -134,8 +129,8 @@ const createNode = ({ id, albumName, releaseDate, trackCount }) => {
     const shortDate = releaseDate.substr(0,10);
     const node = `    
       <div class="col-md-4 col-12 mb-3"  id="${id}">
-          <div class="card  mt-3 ml-3">
-          <img class="foto" alt="Sin imagen disponible" src="img\\${image[id]} " />
+          <div class="card h-100 mt-3 ml-3">
+          <img class="foto img-responsive" alt="Sin imagen disponible" src="img\\${image[id]} " />
               <div class="card-body">
   
                   <h5 class="card-title">${albumName}</h5>
@@ -164,31 +159,28 @@ albums.map((album) => createNode(album));
 const mostrarAlbum = (titulo) => 
 titulo.map((tit) => createNode(tit));
 
-
-  
-
 const clearNodes = () => {
   let node = document.getElementById("apiAlbum");
   node.innerHTML = "";
 };
   
-  // Funcion encargada de buscar un album por nombre
-const searchAlbum = () => {
-    const { value: albumName } = document.querySelector("#input");
-    console.log(albumName);
-    const foundAlbums = albums.filter(
-      (album) => filtro(album.albumName.toLowerCase(), albumName.toLowerCase()));
+//   // Función encargada de buscar un album por nombre
+// const searchAlbum = () => {
+//     const { value: albumName } = document.querySelector("#input");
+//     console.log(albumName);
+//     const foundAlbums = albums.filter(
+//       (album) => filtro(album.albumName.toLowerCase(), albumName.toLowerCase()));
     
-    if (foundAlbums.length>0){
-      clearNodes();
-      iterateAlbums(foundAlbums);
-      document.querySelector("#input").value="";
-    }else{
-      clearNodes();
-      showMessage();
-    }
+//     if (foundAlbums.length>0){
+//       clearNodes();
+//       iterateAlbums(foundAlbums);
+//       document.querySelector("#input").value="";
+//     }else{
+//       clearNodes();
+//       showMessage();
+//     }
     
-  };
+//   };
 
   // Buscador
 const selectedAlbum = () => {
@@ -200,7 +192,7 @@ const selectedAlbum = () => {
   else{
     const foundTitulo = albums.filter(
       (album) => album.albumName.toLowerCase() == titulo.toLowerCase());
-      //console.log(foundTitulo);
+      
       if (foundTitulo.length>0){
        clearNodes();
        mostrarAlbum(foundTitulo);

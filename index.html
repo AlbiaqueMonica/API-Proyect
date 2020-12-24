@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-  
+<html lang="es">
   <head>
     <title>Beatles Discography</title>
     <meta charset="UTF-8" />
@@ -15,65 +14,34 @@
   </head>
   <body>
     <div class="pagina">
-    <div class="container superior">
-      <header>
-      <h1>🎸 🎵 BEATLES DISCOGRAPHY 🎵 🎸</h1>
-      <!-- <h2><a href="https://www.todomusica.org/beatles/" target=”_blank”>Ver biografía</a></h2> -->
-     </header>
-      <!--Selector de título -->
-     <div class="row justify-content-center">
-        <div class="col-md-6 mx-auto">
-          <!-- <div class="form-group"> -->
+      <div class="container superior">
+        <header>
+          <h1>🎸 🎵 BEATLES DISCOGRAPHY 🎵 🎸</h1>
+        </header>
+        <!--Selector de título -->
+        <div class="row justify-content-center">
+          <div class="col-md-6 ">
+            
             <select
               name="titulo"
               id="album-selector"
-              class="input-control p-3 mb-3 rounded"
+              class="form-select  p-3 mb-3 "
             >
               <option value="Todos">Todos</option>
-        
             </select>
-      
-             <!-- <button class="btn text-white p-3 " type="button" id="all">
-               Todos
-              </button> -->
-            <!-- </div> -->
+          </div>
         </div>
       </div>
-  
-      <!--buscador-->
-      <!-- <div class="row justify-content-center mt-1">
-        <div class="col-md-6 mx-auto">
-          <div class="input-group">
-            <input
-              type="text"
-              class="form-control"
-              id="input"
-              placeholder="Buscar Album por título"
-            />
+      <div class="container dinamico">
+        <!-- nodos dinámicos -->
+        <div class="row justify-content-center m-2 " id="apiAlbum"></div>
+        <div class="p-2"></div>
+      </div>
 
-            <button class="btn text-white p-3 " type="button" id="find">
-              Buscar
-            </button>
-          </div>
-
-          <p id="message"></p>
-          -->
-        <!-- </div>
-      </div>  -->
-
+      <footer class="footer mt-auto text-center py-3">
+        &copy; 2020 Mónica Albiaque
+      </footer>
     </div>
-    <div class="container ">
-      <!-- nodos dinámicos -->
-      <div class="row justify-content-center m-2 " id="apiAlbum"></div>
-      <div class="p-2"></div>
-    </div>
-    
-    
-    <footer class="footer mt-auto text-center py-3">
-      &copy; 2020 Mónica Albiaque
-    </footer>
-  </div>
     <script src="index.js"></script>
-  
   </body>
 </html>
